@@ -20,10 +20,9 @@ fi
 
 # Gather command-line arguments for user ID, hostname, and datastore name:
 
-esxiuser=$1
-esxihost=$2
-# ESXi datastore must be uppercase:
-esxidatastore=$(echo "$3" | tr '[:lower:]' '[:upper:]')
+esxiuser="$1"
+esxihost="$2"
+esxidatastore="$3"
 
 ################################################################################
 #
