@@ -13,7 +13,9 @@ logfile=${logdir}/esxi-stop-all-vms.log
 
 echo "$(date): Shut down virtual machines on ESXi host ${esxihost}, FreeNAS server ${freenashost}" | tee ${logfile}
 
+OLDIFS=$IFS
+IFS=";"
 for datastore in $datastores; do
   /mnt/tank/systems/scripts/esxi-stop-all-datastore-vms.sh root ${esxihost} ${datastore} >> ${logfile}
 done
-
+IFS=$OLDIFS
